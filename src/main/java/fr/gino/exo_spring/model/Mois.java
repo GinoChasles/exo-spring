@@ -1,5 +1,6 @@
 package fr.gino.exo_spring.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,5 +18,6 @@ public class Mois {
     private String name;
 
     @ManyToOne @JoinColumn(name = "saison_id")
+    @JsonBackReference
     private Saison saison;
 }

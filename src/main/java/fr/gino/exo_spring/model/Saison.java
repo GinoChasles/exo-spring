@@ -1,5 +1,6 @@
 package fr.gino.exo_spring.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,13 +23,16 @@ public class Saison {
             cascade = CascadeType.ALL,
             orphanRemoval = true,
             fetch = FetchType.EAGER)
-    private List<Mois> moiss;
+    @JsonManagedReference
+    private List<Mois> mois;
 
     @OneToMany(mappedBy="saison",
             cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Fruit> fruits;
 
     @OneToMany(mappedBy="saison",
             cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Legume> legumes;
 }

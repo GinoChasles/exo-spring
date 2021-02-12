@@ -15,7 +15,7 @@ public class SaisonController {
     SaisonService saisonService;
 
     @CrossOrigin
-    @GetMapping("/fruit/{id}")
+    @GetMapping("/saison/{id}")
     public ResponseEntity<Saison> findById(@PathVariable(value = "id")long id){
         Optional<Saison> saisonList;
         try {
