@@ -7,23 +7,25 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/potager")
-@CrossOrigin("*")
+
 public class LegumeController {
 
     @Autowired
-    LegumeService service;
+    LegumeService legumeService;
 
+@CrossOrigin
     @GetMapping("/legume/{id}")
-    public ResponseEntity<List<Legume>> FindById(@PathVariable(value = "id") long id){
-        List<Legume> legumeList;
+    public ResponseEntity<Legume> findById(@PathVariable(value = "id") long id){
+        Optional<Legume> legumeList;
         try{
-            legumeList = service.findById(id);
+            legumeList = legumeService.findById(id);
         }catch (Exception e){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().body(legumeList);
+        return legumeList.map(legume -> ResponseEntity.ok().body(legume)).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }

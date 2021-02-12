@@ -6,19 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class FruitServiceImpl implements FruitService {
-
-    @Autowired
-    FruitRepository repository;
-
-    @Override
-    public List<Fruit> findById(Long id) {
-        return repository.findByFruitId(id);
-    }
+@Autowired
+    FruitRepository fruitRepository;
 
     @Override
-    public List<Fruit> findByName(String name) {
-        return repository.findByName(name);
+    public Optional<Fruit> findById(Long id) {
+        return fruitRepository.findById(id);
     }
 }

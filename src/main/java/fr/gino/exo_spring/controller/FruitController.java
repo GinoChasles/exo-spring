@@ -1,6 +1,7 @@
 package fr.gino.exo_spring.controller;
 
 import fr.gino.exo_spring.model.Fruit;
+import fr.gino.exo_spring.repository.FruitRepository;
 import fr.gino.exo_spring.service.FruitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,23 +9,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/potager")
-@CrossOrigin("*")
 public class FruitController {
-
     @Autowired
-    FruitService service;
+    FruitService fruitService;
 
+@CrossOrigin
     @GetMapping("/fruit/{id}")
-    public ResponseEntity<List<Fruit>> findById(@PathVariable(value = "id") long id){
-        List<Fruit> fruitList;
+    public ResponseEntity<Fruit> findById(@PathVariable(value = "id") long id){
+        Optional<Fruit> fruitList;
         try {
-            fruitList = service.findById(id);
+            fruitList = fruitService.findById(id);
         } catch (Exception e){
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok().body(fruitList);
-    };
+    return fruitList.map(fruit -> ResponseEntity.ok().body(fruit)).orElseGet(() -> ResponseEntity.notFound().build());
+}
 }

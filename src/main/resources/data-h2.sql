@@ -24,6 +24,7 @@ insert into fruit(name) values ('clémentine');
 insert into fruit(name) values ('pomme');
 insert into fruit(name) values ('poire');
 insert into fruit(name) values ('kiwi');
+insert into fruit(name) values ('kiwi2');
 
 
 

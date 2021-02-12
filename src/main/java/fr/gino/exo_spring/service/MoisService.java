@@ -1,12 +1,11 @@
 package fr.gino.exo_spring.service;
 
+import fr.gino.exo_spring.model.Fruit;
 import fr.gino.exo_spring.model.Mois;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
-
+import java.util.Optional;
 
 public interface MoisService {
-    List<Mois> findById(long id);
-    List<Mois> findByName(String name);
+    Optional<Mois> findById(Long id);
 }

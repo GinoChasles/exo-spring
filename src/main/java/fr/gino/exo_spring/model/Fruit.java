@@ -18,9 +18,6 @@ public class Fruit {
 
     private String name;
 
-    @ManyToOne @JoinColumn(name = "saison_id")
-
-    private Saison saison;
 }
 
 
