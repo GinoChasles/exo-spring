@@ -27,21 +27,4 @@ public class FruitController {
         }
         return ResponseEntity.ok().body(fruitList);
     };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
