@@ -19,7 +19,7 @@ insert into saison(name) values ('automne');
 insert into saison(name) values ('hiver');
 insert into saison(name) values ('printemps');
 
-insert into fruit(name) values ('tomate');
+insert into fruit(name, saison_id) values ('tomate',1);
 insert into fruit(name) values ('clémentine');
 insert into fruit(name) values ('pomme');
 insert into fruit(name) values ('poire');
@@ -33,3 +33,5 @@ insert into legume(name) values ('choux');
 insert into legume(name) values ('carotte');
 insert into legume(name) values ('haricots');
 insert into legume(name) values ('pomme de terre');
+
+

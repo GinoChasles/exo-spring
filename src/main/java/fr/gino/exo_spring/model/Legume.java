@@ -17,6 +17,8 @@ public class Legume {
     private long id;
 
     private String name;
+    @ManyToOne @JoinColumn(name = "saison_id")
+    private Saison saison;
 
 
 }
