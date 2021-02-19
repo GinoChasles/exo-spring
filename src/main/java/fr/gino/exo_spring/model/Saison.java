@@ -26,13 +26,5 @@ public class Saison {
     @JsonManagedReference
     private List<Mois> mois;
 
-    @OneToMany(mappedBy="saison",
-            cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Fruit> fruits;
 
-    @OneToMany(mappedBy="saison",
-            cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private List<Legume> legumes;
 }

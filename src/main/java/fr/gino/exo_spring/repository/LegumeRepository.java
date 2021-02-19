@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface LegumeRepository extends JpaRepository<Legume, Long> {
     public List<Legume> findByName(String name);
+
 }

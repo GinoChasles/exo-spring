@@ -6,4 +6,7 @@ import java.util.Optional;
 
 public interface LegumeService {
      Optional<Legume> findById(Long id);
+     Legume insert(Legume legume);
+     Legume update(Long id, Legume legume);
+     Legume delete(Long id);
 }

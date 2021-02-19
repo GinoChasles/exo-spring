@@ -17,7 +17,7 @@ public class LegumeController {
     @Autowired
     LegumeService legumeService;
 
-@CrossOrigin
+    @CrossOrigin
     @GetMapping("/legume/{id}")
     public ResponseEntity<Legume> findById(@PathVariable(value = "id") long id){
         Optional<Legume> legumeList;
@@ -28,4 +28,32 @@ public class LegumeController {
         }
         return legumeList.map(legume -> ResponseEntity.ok().body(legume)).orElseGet(() -> ResponseEntity.notFound().build());
     }
+
+    @CrossOrigin
+    @PostMapping("/legume")
+    ResponseEntity<Legume> addLegume (@RequestBody Legume legume){
+        return ResponseEntity.ok().body(legumeService.insert(legume));
+    }
+
+    @CrossOrigin
+    @PutMapping("/legume/{id}")
+    ResponseEntity<Legume> updateLegume(@PathVariable(value = "id") Long id, @RequestBody Legume legume){
+        Legume updateLegume = legumeService.update(id, legume);
+        if(updateLegume == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok().body(updateLegume);
+    }
+
+    @CrossOrigin
+    @DeleteMapping("/legume/{id}")
+    ResponseEntity<Legume> deleteLegume(@PathVariable (value = "id") Long id){
+        Optional<Legume> legume = legumeService.findById(id);
+        if(legume.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        legumeService.delete(legume.get().getId());
+        return ResponseEntity.accepted().build();
+    }
+
 }

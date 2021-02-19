@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 public interface FruitRepository extends JpaRepository<Fruit, Long> {
 
-    public List<Fruit> findByName(String name);
+   /* public List<Fruit> findFruitsBySaisonId(long saison_id);*/
+
 }

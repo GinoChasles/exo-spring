@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -19,9 +20,8 @@ public class Fruit {
 
     private String name;
 
-    @ManyToOne @JoinColumn(name = "saison_id")
-    @JsonBackReference
-    private Saison saison;
+    @ManyToMany(mappedBy = "fruits")
+    private List<Mois> moisList;
 }
 
 
