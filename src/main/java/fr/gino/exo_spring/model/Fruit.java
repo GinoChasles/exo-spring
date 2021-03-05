@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -20,8 +21,13 @@ public class Fruit {
 
     private String name;
 
-    @ManyToMany(mappedBy = "fruits")
-    private List<Mois> moisList;
+
+    @ManyToMany
+    @JoinTable(name = "fruit_mois",
+            joinColumns = @JoinColumn(name = "fruit_id"),
+            inverseJoinColumns = @JoinColumn(name = "mois_id")
+    )
+    List<Mois> mois;
 }
 
 

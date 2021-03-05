@@ -1,6 +1,7 @@
 package fr.gino.exo_spring.controller;
 
 import fr.gino.exo_spring.model.Fruit;
+import fr.gino.exo_spring.model.Mois;
 import fr.gino.exo_spring.repository.FruitRepository;
 import fr.gino.exo_spring.service.FruitService;
 import lombok.Value;
@@ -39,6 +40,7 @@ public class FruitController {
     @CrossOrigin
     @PutMapping("/fruit/{id}")
     ResponseEntity<Fruit> updateFruit(@PathVariable(value = "id") Long id, @RequestBody Fruit fruit){
+        System.out.println(fruit.getMois().size());
         Fruit updateFruit = fruitService.update(id, fruit);
         if(updateFruit == null){
             return ResponseEntity.notFound().build();
@@ -56,17 +58,18 @@ public class FruitController {
         return ResponseEntity.accepted().build();
     }
 
- /*   @CrossOrigin
-    @GetMapping("/fruit/{id}/saison")
-    public ResponseEntity<List<Fruit>> getAllFruit(@PathVariable(value = "id")long id) {
-        List<Fruit> listFruit;
-        try{
-            listFruit = fruitService.findFruitsBySaisonId(id);
-        } catch (Exception e){
-            return ResponseEntity.notFound().build();
-        }
-        //return listFruit.map(fruit -> ResponseEntity.ok().body(fruit));
-        return ResponseEntity.ok().body(listFruit);
-    }*/
+    @CrossOrigin
+    @GetMapping("/fruits")
+    ResponseEntity<List<Fruit>> findAll() {
+        List<Fruit> fruitList;
+        fruitList = fruitService.findAll();
+        return ResponseEntity.ok().body(fruitList);
+    }
 
+//    @CrossOrigin
+//    @PostMapping("/fruit/{id}/mois/{id}")
+//    ResponseEntity<Fruit> addFruitToMois(@PathVariable(value = "fruit_id, mois_id")Long id,
+//    @RequestBody Fruit fruit, @RequestBody Mois mois){
+//
+//    }
 }

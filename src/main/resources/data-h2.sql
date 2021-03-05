@@ -21,7 +21,7 @@ insert into mois(name, saison_id) values ('dec', 2);
 
 
 
-insert into fruit(name, mois_id) values ('tomate',3);
+insert into fruit(name) values ('tomate');
 insert into fruit(name) values ('clémentine');
 insert into fruit(name) values ('pomme');
 insert into fruit(name) values ('poire');

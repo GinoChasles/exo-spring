@@ -46,14 +46,11 @@ public class FruitServiceImpl implements FruitService {
         return null;
     }
 
-   /* @Override
-    public List<Fruit> findFruitsBySaisonId(long saison_id) {
-        return fruitRepository.findFruitsBySaisonId(saison_id);
-    }*/
+    @Override
+    public List<Fruit> findAll(){ return fruitRepository.findAll();}
 
-
-/*    @Override
-    public Fruit insertMois(Fruit fruit, List<Mois> moisList) {
-        return fruitRepository.save(fruit);
-    }*/
+//    @Override
+  //  public Fruit addFruitToMois(Fruit fruit, Mois mois) {
+    //    return fruitRepository.save(fruit);
+    //}
 }
