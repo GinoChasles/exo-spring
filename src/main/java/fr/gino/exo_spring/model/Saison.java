@@ -19,8 +19,12 @@ public class Saison {
 
     private String name;
 
+    @OneToMany (mappedBy = "saison")
+    private List<Fruit> fruit;
+
+    @OneToMany(mappedBy = "saison")
+    private List<Legume> legume;
+
     @OneToMany(mappedBy = "saison")
     private List<Mois> mois;
-
-
 }

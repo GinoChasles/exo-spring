@@ -20,5 +20,6 @@ public class Legume {
 
     private String name;
 
-
+    @ManyToOne @JoinColumn (name = "idsaison")
+    private Saison saison;
 }

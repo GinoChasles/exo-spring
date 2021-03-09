@@ -21,13 +21,8 @@ public class Fruit {
 
     private String name;
 
-
-    @ManyToMany
-    @JoinTable(name = "fruit_mois",
-            joinColumns = @JoinColumn(name = "fruit_id"),
-            inverseJoinColumns = @JoinColumn(name = "mois_id")
-    )
-    List<Mois> mois;
+    @ManyToOne @JoinColumn (name= "idsaison")
+    private Saison saison;
 }
 
 

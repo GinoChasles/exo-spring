@@ -12,6 +12,6 @@ public interface FruitService {
     Fruit insert(Fruit fruit);
     Fruit update(Long id, Fruit fruit);
     Fruit delete(Long id);
-    List<Fruit> findAll();
+    //List<Fruit> findAll();
     //Fruit addFruitToMois(Fruit fruit, Mois mois);
 }

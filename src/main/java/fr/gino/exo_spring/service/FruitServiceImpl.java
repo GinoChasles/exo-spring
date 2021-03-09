@@ -46,8 +46,8 @@ public class FruitServiceImpl implements FruitService {
         return null;
     }
 
-    @Override
-    public List<Fruit> findAll(){ return fruitRepository.findAll();}
+    //@Override
+    //public List<Fruit> findAll(){ return fruitRepository.findAll();}
 
 //    @Override
   //  public Fruit addFruitToMois(Fruit fruit, Mois mois) {

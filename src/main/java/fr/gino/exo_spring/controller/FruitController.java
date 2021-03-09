@@ -31,16 +31,15 @@ public class FruitController {
         return fruitList.map(fruit -> ResponseEntity.ok().body(fruit)).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @CrossOrigin
-    @PostMapping("/fruit")
-    ResponseEntity<Fruit> addFruit (@RequestBody Fruit fruit){
-        return ResponseEntity.ok().body(fruitService.insert(fruit));
-    }
+//    @CrossOrigin
+//    @PostMapping("/fruit")
+//    ResponseEntity<Fruit> addFruit (@RequestBody Fruit fruit){
+//        return ResponseEntity.ok().body(fruitService.insert(fruit));
+//    }
 
     @CrossOrigin
     @PutMapping("/fruit/{id}")
     ResponseEntity<Fruit> updateFruit(@PathVariable(value = "id") Long id, @RequestBody Fruit fruit){
-        System.out.println(fruit.getMois().size());
         Fruit updateFruit = fruitService.update(id, fruit);
         if(updateFruit == null){
             return ResponseEntity.notFound().build();
@@ -58,13 +57,13 @@ public class FruitController {
         return ResponseEntity.accepted().build();
     }
 
-    @CrossOrigin
-    @GetMapping("/fruits")
-    ResponseEntity<List<Fruit>> findAll() {
-        List<Fruit> fruitList;
-        fruitList = fruitService.findAll();
-        return ResponseEntity.ok().body(fruitList);
-    }
+//    @CrossOrigin
+//    @GetMapping("/fruits")
+//    ResponseEntity<List<Fruit>> findAll() {
+//        List<Fruit> fruitList;
+//        fruitList = fruitService.findAll();
+//        return ResponseEntity.ok().body(fruitList);
+//    }
 
 //    @CrossOrigin
 //    @PostMapping("/fruit/{id}/mois/{id}")
