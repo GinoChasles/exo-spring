@@ -19,11 +19,7 @@ public class Saison {
 
     private String name;
 
-    @OneToMany(mappedBy = "saison",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @OneToMany(mappedBy = "saison")
     private List<Mois> mois;
 
 

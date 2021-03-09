@@ -23,13 +23,5 @@ public class Mois {
     @JsonBackReference
     private Saison saison;
 
-    @ManyToMany(mappedBy = "mois")
-    private List<Fruit> fruitList;
 
-    @ManyToMany
-    @JoinTable(name = "mois_legume",
-            joinColumns = @JoinColumn(name = "mois_id"),
-            inverseJoinColumns = @JoinColumn(name = "legume_id")
-    )
-    List<Legume> legumes;
 }

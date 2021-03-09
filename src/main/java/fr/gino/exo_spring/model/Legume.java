@@ -21,7 +21,4 @@ public class Legume {
     private String name;
 
 
-
-    @ManyToMany(mappedBy = "legumes")
-    private List<Mois> moisList;
 }
